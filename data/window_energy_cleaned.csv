@@ -1,0 +1,11 @@
+group,Single-pane tempered glass (4 mm thickness),"Double-pane tempered glass (4 mm thickness)
+(8 mm Gap)+air","Double-pane clear glass (4 mm thickness)
+(8 mm Gap) +Air","Double-pane tempered glass (4 mm thickness)
+(8 mm Gap)+Krypt","Double-pane clear glass (4 mm thickness)
+(8 mm Gap)+Krypt","Double-pane clear  glass + Krypt (6 mm thickness)
+(8 mm Gap)"
+EnergyLoad (per 10 mWh),1.672741,1.263385,1.274114,1.248506,1.260173,1.274501
+"totalCost
+(per $1000)",0.09971,0.273,0.161,2.81225,2.70025,2.7265
+"paybackPeriod
+(per decade)",0.157,0.0391,0.0249,0.4047,4.256,4.629
