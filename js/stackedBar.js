@@ -14,7 +14,7 @@ let dataURLThree = "data/appliance_energy.csv";
 let max_valThree = 4.5*2;
 let domThree = 'stacked-barThree'
 
-// Parse the Data
+// create an update function to update each stacked bar chart in the flip cards
 function UpdateChart(dom, dataURL, max_val) {
     var margin = {top: 20, right: 15, bottom: 20, left: 15},
         width = document.getElementById(dom).getBoundingClientRect().width - margin.left - margin.right,
@@ -28,10 +28,10 @@ function UpdateChart(dom, dataURL, max_val) {
 
     d3.csv(dataURL).then(function (data) {
 
-        // List of subgroups = header of the csv files = soil condition here
+        // get subgroups by using the header of the csv files as the subgroup names
         var subgroups = data.columns.slice(1)
 
-        // List of groups = species here = value of the first column called group -> I show them on the X axis
+        // List of groups on the X axis
         var groups = data.map(d => d.group)
 
         // Add X axis
@@ -76,36 +76,23 @@ function UpdateChart(dom, dataURL, max_val) {
                 '#BD1F36',
                 '#DA1E37'])
 
-        //stack the data? --> stack per subgroup
+        //stack data via the subgroup
         var stackedData = d3.stack()
             .keys(subgroups)
             (data)
 
 
-        // ----------------
         // Create a tooltipBar
-        // ----------------
         var tooltipBar = d3.select("#"+dom)
             .append("div")
             .style("opacity", 0)
             .attr("class", "tooltipBar center")
-            // .style("position", "absolute")
-            // .style("background-color", "white")
-            // .style("border", "solid")
-            // .style("border-width", "1px")
-            // .style("border-radius", "5px")
-            // .style("padding", "10px")
-            // .style("left", "100px")
+
             .attr("x", 0)
             .attr("y", -100);
 
-        // Three function that change the tooltipBar when user hover / move / leave a cell
+        // Three functions that change the tooltipBar when user hover / move / leave a cell
         var mouseover = function (event, d) {
-
-            // d3.selectAll(".myArea").style("opacity", .2)
-            // console.log("stackedBar", this.parentNode)
-            // d3.select(this)
-            //     .style("opacity", 1)
 
             var subgroupName = d3.select(this.parentNode).datum().key;
             var subgroupValue = d.data[subgroupName];
@@ -121,27 +108,23 @@ function UpdateChart(dom, dataURL, max_val) {
             tooltipBar
                 .style("transform","translateY(55)")
                 .style("transform","translateX(-455)")
-                // .style("left", (event.pageX - 5) + "px")
-                // .style("top", (event.pageY - 5) + "px");
+
         }
         var mouseleave = function (event, d) {
             tooltipBar
                 .style("opacity", 0)
-
-            // d3.selectAll(".myArea").style("opacity", 1)
-            //     .style("stroke", "none")
         }
 
         // Show the bars
         svgBar.append("g")
             .attr("class", "myArea")
             .selectAll("g")
-            // Enter in the stack data = loop key per key = group per group
+            // Enter in the stack data by group
             .data(stackedData)
             .join("g")
             .attr("fill", d => color(d.key))
             .selectAll("rect")
-            // enter a second time = loop subgroup per subgroup to add all rectangles
+            // enter a second time for the stacked portion using subgroup
             .data(d => d)
             .join("rect")
             .attr("x", d => x(d.data.group))

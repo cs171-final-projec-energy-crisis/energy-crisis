@@ -1,3 +1,5 @@
+
+// color palette
 let colorTree = ['#6C757D',
 	'#333333',
 	'#555555',
@@ -26,6 +28,8 @@ let colorTree = ['#6C757D',
 	'#777777',
 	'#6C757D',
 ];
+
+//join color palette with node names
 let treeMapSrc =['Heating Bkup',
 	'Ceiling Fan',
 	'Clothes Dryer',
@@ -66,10 +70,9 @@ var width = height = 100, // % of the parent element
 	
 	Ttreemap = d3.treemap()
     	.size([width, height])
-		//.tile(d3.treemapResquarify) // doesn't work - height & width is 100%
     	.paddingInner(0)
     	.round(false), //true
-
+// data for the treemap
 	data = {
 		"children": [
 			{
@@ -227,10 +230,10 @@ var width = height = 100, // % of the parent element
 		],
 		"name": "All Features"
 	},
-	
+	// create hierarchy for the nested data
 	Tnodes = d3.hierarchy(data)
 		.sum(function(d) { return d.value ? 1 : 0; }),
-		//.sort(function(a, b) { return b.height - a.height || b.value - a.value });
+
 	
 	currentDepth;
 
@@ -249,18 +252,13 @@ var cells = chart
 var pmax = d3.max(Tnodes, function(d) {
 	if(d.depth<1) return +d.size;
 })
-
+//build each rectangle and click option to dive deeper
 cells
 	.style("left", function(d) { return x(d.x0) + "%"; })
 	.style("top", function(d) { return y(d.y0) + "%"; })
 	.style("width", function(d) { return x(d.x1) - x(d.x0) + "%"; })
 	.style("height", function(d) { return y(d.y1) - y(d.y0) + "%"; })
-	//.style("background-image", function(d) { return d.value ? imgUrl + d.value : ""; })
-	//.style("background-image", function(d) { return d.value ? "url(http://placekitten.com/g/300/300)" : "none"; }) 
 	.style("background-color", function(d) { while (d.depth > 2) d = d.parent; return color(d.data.name); })
-	// .style("border-color", function(d) { while (d.depth > 2) d = d.parent; return "white"; })
-	// .style('stroke', function(d) { while (d.depth < 2)  return 'black'; })
-	// .style('stroke-width', function(d) { while (d.depth < 2)  return '2px'; })
 	.on("click", zoom)
 	.append("p")
 	.attr("class", "label")
@@ -268,13 +266,13 @@ cells
 		if (d.height > 0) return d.data.name;
 		return d.data.name + ": " + formatDecimal_tree(d.data.value*100) + "%";
 	});
-	//.style("font-size", "")
-	//.style("opacity", function(d) { return isOverflowed( d.parent ) ? 1 : 0; });
 
+// how to move back up the tree
 var parent = d3.select(".up")
 	.datum(Tnodes)
 	.on("click", zoom);
 
+//function that allows you to click into each parent node
 function zoom(event, d) {
 	
 	console.log('clicked: ' + d.data.name + ', depth: ' + d.depth);

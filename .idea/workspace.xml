@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2ab81c97-fa4e-4a8e-87a6-f5f2b8bb5752" name="Changes" comment="" />
+    <list default="true" id="2ab81c97-fa4e-4a8e-87a6-f5f2b8bb5752" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/Main.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/Main.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/comm-chart/comm_stackedAreaChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/comm-chart/comm_stackedAreaChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/dendo.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/dendo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/fadein-scroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/fadein-scroll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/flipStackedCharts.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/flipStackedCharts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/loader.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/loader.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/map-county.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/map-county.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/map-state.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/map-state.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/res-chart/res_cat_stackedAreaChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/res-chart/res_cat_stackedAreaChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/res-comm-chart/resComm_stackedAreaChart.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/res-comm-chart/resComm_stackedAreaChart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/stackedBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/stackedBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/toTheTop.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/toTheTop.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/treemap.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/treemap.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/verticalNavBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/verticalNavBar.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -19,16 +36,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/aditi/Desktop/energy-crisis/js&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/aditi/Desktop/energy-crisis",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/js" />
@@ -45,7 +62,8 @@
       <option name="presentableId" value="Default" />
       <updated>1670213326475</updated>
       <workItem from="1670213328476" duration="2062000" />
-      <workItem from="1670215979148" duration="319000" />
+      <workItem from="1670215979148" duration="1248000" />
+      <workItem from="1670217312196" duration="2069000" />
     </task>
     <servers />
   </component>

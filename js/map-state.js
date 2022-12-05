@@ -1,3 +1,6 @@
+// builds the state avg. energy and incentive state map
+//``````````````````````````````````````//
+
 let stateURL = 'https://cdn.freecodecamp.org/testable-projects-fcc/data/choropleth_map/counties.json'
 let energyURL = 'data/incentive_energy_data.csv'
 console.log(d3)
@@ -5,29 +8,28 @@ console.log(topojson)
 
 let energyData
 let stateData
-
+// create svg for map and tool tip
 let canvas = d3.select('#state-map').append('svg')
-// .attr("width", 200)
-// .attr("height", 200)
-
-// needs to match name in css file
 let stateTooltip = d3.select('#state-tooltip')
-
+//color palette
 let colorState = ['rgba(248,249,250,0.8)', 'rgba(206,212,218,0.8)', 'rgba(108,117,125,0.8)',
     'rgba(100,18,32,0.8)', 'rgba(133,24,42,0.8)', 'rgba(167,30,52,0.8)', 'rgba(189,31,54,0.8)', 'rgba(218,30,55,0.8)'];
+//format the values
 let formatDecimal = d3.format(",.2f");
 let formatInteger = d3.format(",");
 
 function format(number){
     return !(number % 1) ? formatInteger(number) : formatDecimal(number)
 }
+
+//draw the state map
 let drawMap = () => {
     var dataArray = [];
     for (var d = 0; d < energyData.length; d++) {
         dataArray.push(parseFloat(energyData[d].avg_energy))
     }
 
-
+    //create linear color scale
     var minVal = d3.min(dataArray)
     console.log(minVal)
     var maxVal = d3.max(dataArray)
@@ -48,13 +50,10 @@ let drawMap = () => {
 
         //stateDataItem refers to the state level array object from the topojson file
         .attr('fill', (stateDataItem) => {
-            //we're matching the topojson arrays to the corresponding education data based on the FIPS code
             // now we need to pull the associated data that we want to color based upon
             let percentage = stateDataItem.properties.value
             return colorScale(percentage)
         })
-        //stating that data-fips is now the id code from the topojson file
-        // stating that data-education is now the value of a column that has the same fips code stated in the energyData
 
         // ADDING TOOLTIP BASED ON  TOPOJSON FILE ARRAYS
         .on('mouseover', function(event,stateDataItem){
@@ -159,9 +158,7 @@ d3.json(stateURL).then(
             // stateData = topoData
             // need to convert topojson features into geojson so d3 can understand it
             //state data is id-ed by the FIPS code
-            // need 2 arguments to do this
-            // first argument: the name of the topojson argument when called in the promise i.e.topoData
-            // second argument: the type of datat needed from the topojson data
+
             stateData = topojson.feature(topoData, topoData.objects.states)
             // console.log('state Data')
             // console.log(stateData)

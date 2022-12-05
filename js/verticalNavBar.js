@@ -1,6 +1,4 @@
-// listen for clicks on the navbar
-
-
+// builds nav bar and sets conditions for when it appears on main page
 mynavbar = document.getElementById("verticalNav");
 
 // When the user scrolls down 20px from the top of the document, show the button

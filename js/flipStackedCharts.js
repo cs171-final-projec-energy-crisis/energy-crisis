@@ -1,3 +1,5 @@
+// creates the flip action for the stacked charts
+
 var cards = document.querySelectorAll('.card-bar');
 
 [...cards].forEach((card)=>{

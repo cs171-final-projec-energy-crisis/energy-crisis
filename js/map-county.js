@@ -1,20 +1,25 @@
+// builds the climate zone by county map
+//``````````````````````````````````````//
 let countyURL ='data/us_county.json'
 let climateURL = 'data/climate_fips_sub_type.csv'
 console.log(d3)
 console.log(topojson)
 let countyData
-// let climateData
+
+//color palette
 let colorCounty = ['#F8F9FA', '#CED4DA', '#6C757D', '#641220', '#85182A', '#A71E34', '#BD1F36', '#DA1E37'];
 
+//assign icon to climate zone using scale
 let imageScalePath = ['img/climate_type/cold.png','img/climate_type/dry.png', 'img/climate_type/hot.png', 'img/climate_type/humid.png', 'img/climate_type/marine.png',  'img/climate_type/subartic.png', 'img/climate_type/very_cold.png', 'img/climate_type/hot.png', 'img/climate_type/mixed.png', 'img/climate_type/mixed.png']
 let imageScaleSrc = ['Cold','Dry', 'Hot', 'Humid', 'Marine', 'Subartic','Very Cold', 'Hot/Humid', 'Humid/Mixed', 'Mixed']
 var imageScale = d3.scaleOrdinal().domain(imageScaleSrc).range(imageScalePath)
 
+// creating the svg canvas and the tooltip
 let canvasCounty = d3.select('#county-map').append('svg') // needs to match name in css file
 let countyTooltip = d3.select('#county-tooltip')
 let countyIcon = d3.select('#county-icon')
 
-
+// drawing the map
 let drawCountyMap = () => {
     var dataArray = [];
     for (var d = 0; d < climateData.length; d++) {
@@ -58,9 +63,7 @@ let drawCountyMap = () => {
 
             countyTooltip.transition()
                 .style('visibility', 'visible')
-            //same thing as before we're pulling the id from the arrays and the matching fips code from the eudcation data
-
-
+            //same thing as before we're pulling the id from the arrays and the matching fips code from the climate data
 
             countyTooltip
                 .html(`<img src=${countyDataItem.properties.picSrc} width="13%" height="auto">
@@ -76,37 +79,6 @@ let drawCountyMap = () => {
                 .style("top", (event.pageY+20) + "px");
 
 
-
-//             countyTooltip
-//                 .attr("x", document.getElementById('county-map').getBoundingClientRect().width-100)
-//                 .attr("y", 0)
-//                 .html(`<div class="col">
-// <div class="center">
-//                   <span >${countyDataItem.properties.code}, ${countyDataItem.properties.stateCode}</span>
-//                   </div>
-//                         <div class="center">
-//                      <span>Zone: ${countyDataItem.properties.zone}</span>
-//                      </div>
-//                     <div class="center">
-//                      <span>Sub-Zone: ${countyDataItem.properties.subZone}</span>
-//                      </div>
-//                     <div class="center">
-//                      <span>Climate: ${countyDataItem.properties.zoneType}</span>
-//                      </div>
-//                  <br>
-//                  <div class="center">
-//                  <img src=${countyDataItem.properties.picSrc} width="10%" height="auto"></div></div>`)
-//                 .attr('data-climate', countyDataItem.properties.zone)
-//                 .attr('data-subZone', countyDataItem.properties.subZone)
-//                 .attr('data-climateType', countyDataItem.properties.zoneType)
-//                 .attr('data-climatePic', countyDataItem.properties.picSrc)
-//             // .style("left", (event.pageX-15)+ "px")
-//             // .style("top", (event.pageY+5) + "px");
-//             d3.select(this)
-//                 .style("stroke", "white")
-//                 .style("opacity", 1)
-//             countyIcon.transition()
-//                 .style('visibility', 'visible')
 
         })
         //now adding what happens once mouse is no longer there by hiding the countyTooltip
@@ -152,7 +124,7 @@ d3.json(countyURL).then(
                         //only run this method once all of the data is loaded
                         for (var i = 0; i <  climateData.length; i++) {
 
-                            // Grab State Name
+                            // Grab county basic info to match to the county pth feature topojson object
                             var dataState =  climateData[i].FIPS_state;
                             var dataCounty = climateData[i].FIPS_county;
                             var comboUS = dataState+dataCounty

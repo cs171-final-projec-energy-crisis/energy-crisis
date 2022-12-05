@@ -1,9 +1,11 @@
 
-
+// read data file
 d3.csv("data/comm_all.csv").then( function(data) {
     var margin = {top: 60, right: 230, bottom: 50, left: 50},
         width = 660 - margin.left - margin.right,
         height = 400 - margin.top - margin.bottom;
+
+    //create scale to assign images to tooltip
     let imageScalePath = ['img/stacked_chart/commercial/DeliveredEnergy.jpeg',
         'img/stacked_chart/commercial/DistillateFuelOil.jpg',
         'img/stacked_chart/commercial/EnergyRelatedLosses.jpeg',
@@ -120,9 +122,9 @@ d3.csv("data/comm_all.csv").then( function(data) {
         .y1(function (d) {
             return y(d[1]);
         })
+    //function to highlight area based on hover
     var highlight = function (event, d, i) {
         console.log(d)
-        // reduce opacity of all groups
         d3.selectAll(".myArea").style("opacity", .2)
         // expect the one that is hovered
         d3.select(this)
@@ -144,7 +146,7 @@ d3.csv("data/comm_all.csv").then( function(data) {
 
     }
 
-    // And when it is not hovered anymore
+    //function to not highlight area based on hover
     var noHighlight = function (event, d, i) {
         d3.selectAll(".myArea").style("opacity", 1)
         commTooltip.style("opacity", 0)

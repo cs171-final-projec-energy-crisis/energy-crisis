@@ -22,7 +22,7 @@ var treemap = d3.tree().size([height/2, width/2]);
 function updateButton (dataURL) {
     d3.json(dataURL).then(function (treeData) {
 
-        // Assigns parent, children, height, depth
+        // creates the hierarchy
         root = d3.hierarchy(treeData, function (d) {
             return d.children;
         });
@@ -65,7 +65,7 @@ function updateButton (dataURL) {
                     return d.id || (d.id = ++i);
                 });
 
-            // Enter any new modes at the parent's previous position.
+            // Enter any new nodes at the parent's previous position.
             var nodeEnter = node.enter().append('g')
                 .attr('class', 'node')
                 .attr("transform", function (d) {
