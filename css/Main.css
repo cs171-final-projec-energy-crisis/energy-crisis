@@ -20,7 +20,7 @@
 .wave {
     width: 5px;
     height: 100px;
-    background: linear-gradient(to right,black, #DA1E37);
+    background: linear-gradient(to right,black, #A71E34);
     margin: 10px;
     animation: wave 1s linear infinite;
     border-radius: 1px;
