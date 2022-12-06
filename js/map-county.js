@@ -10,7 +10,7 @@ let countyData
 let colorCounty = ['#F8F9FA', '#CED4DA', '#6C757D', '#641220', '#85182A', '#A71E34', '#BD1F36', '#DA1E37'];
 
 //assign icon to climate zone using scale
-let imageScalePath = ['img/climate_type/cold.png','img/climate_type/dry.png', 'img/climate_type/hot.png', 'img/climate_type/humid.png', 'img/climate_type/marine.png',  'img/climate_type/subartic.png', 'img/climate_type/very_cold.png', 'img/climate_type/hot.png', 'img/climate_type/mixed.png', 'img/climate_type/mixed.png']
+let imageScalePath = ['img/climate_type/cold.png','img/climate_type/dry.png', 'img/climate_type/hot.png', 'img/climate_type/humid.png', 'img/climate_type/Marine.png',  'img/climate_type/subartic.png', 'img/climate_type/very_cold.png', 'img/climate_type/hot.png', 'img/climate_type/Mixed.png', 'img/climate_type/Mixed.png']
 let imageScaleSrc = ['Cold','Dry', 'Hot', 'Humid', 'Marine', 'Subartic','Very Cold', 'Hot/Humid', 'Humid/Mixed', 'Mixed']
 var imageScale = d3.scaleOrdinal().domain(imageScaleSrc).range(imageScalePath)
 
